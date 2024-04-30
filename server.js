@@ -45,42 +45,28 @@ app.get('/messages/sync', (req, res) => {
     })
 })
 
+*/
 
 app.post('/messages/new', async (req, res) => {
     try {
         const dbMessage = req.body;
-        const data = await Messages.create(dbMessage);
-        res.status(201).send(data);
+        const data = await Messages.create({
+            message: dbMessage.message,
+            name: dbMessage.name,
+            timestamp: dbMessage.timestamp,
+            received: true
+        });
+
+        const responseData = {
+            _id: data._id,
+            received: data.received,
+            ...dbMessage
+        };
+
+        res.status(201).send(responseData);
     } catch (err) {
         res.status(500).send(err);
     }
-});
-
-app.get('/messages/sync', async (req, res) => {
-    try {
-        const data = await Messages.find();
-        res.status(200).send(data);
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
-*/
-
-app.post('/messages/new', (req, res) => {
-    const dbMessage = req.body;
-
-    // Create the message using the newMessage object
-    Messages.create(dbMessage, (err, data) => {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            const responseData = {
-                _id: data._id,
-                ...dbMessage
-            };
-            res.status(201).send(responseData);
-        }
-    });
 });
 
 
