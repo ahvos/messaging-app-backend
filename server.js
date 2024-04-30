@@ -1,6 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import Cors from 'cors'
+import Pusher from 'pusher'
 
 import Messages from './dbMessages.js'
 
@@ -10,6 +11,14 @@ import Messages from './dbMessages.js'
 const app = express()
 const port = process.env.PORT || 9000
 const connection_url = 'mongodb+srv://admin:a1317@messages.w7ynszz.mongodb.net/?retryWrites=true&w=majority&appName=messages'
+
+const pusher = new Pusher({
+    appId: "1795699",
+    key: "7ef4753b8c612d73d576",
+    secret: "e76ebc4debd197c7119b",
+    cluster: "us3",
+    useTLS: true
+});
 
 
 /* middleware */
