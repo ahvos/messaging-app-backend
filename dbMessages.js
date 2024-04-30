@@ -5,7 +5,7 @@ const messagingSchema = mongoose.Schema ({
     message: String,
     name: String,
     timestamp: String,
-    received: Boolean
+    received: { type: Boolean }
 })
 
 
