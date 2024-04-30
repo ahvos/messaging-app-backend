@@ -28,7 +28,6 @@ mongoose.connect(connection_url, {
 /* api endpoints */
 app.get("/", (req, res) => res.status(200).send("Hello TheWebDev"))
 
-/*
 app.post('/messages/new', (req, res) => {
     const dbMessage = req.body
     Messages.create(dbMessage, (err, data) => {
@@ -48,7 +47,8 @@ app.get('/messages/sync', (req, res) => {
         }
     })
 })
-*/
+
+/*
 app.post('/messages/new', async (req, res) => {
     try {
         const dbMessage = req.body;
@@ -67,7 +67,7 @@ app.get('/messages/sync', async (req, res) => {
         res.status(500).send(err);
     }
 });
-
+*/
 
 /* listener */
 app.listen(port, () => console.log(`Listening on localhost: ${port}`))
