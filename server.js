@@ -28,6 +28,7 @@ mongoose.connect(connection_url, {
 /* api endpoints */
 app.get("/", (req, res) => res.status(200).send("Hello TheWebDev"))
 
+/*
 app.post('/messages/new', (req, res) => {
     const dbMessage = req.body
     Messages.create(dbMessage, (err, data) => {
@@ -47,6 +48,25 @@ app.get('/messages/sync', (req, res) => {
         }
     })
 })
+*/
+app.post('/messages/new', async (req, res) => {
+    try {
+        const dbMessage = req.body;
+        const data = await Messages.create(dbMessage);
+        res.status(201).send(data);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+app.get('/messages/sync', async (req, res) => {
+    try {
+        const data = await Messages.find();
+        res.status(200).send(data);
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
 
 
 /* listener */
