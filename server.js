@@ -18,11 +18,7 @@ app.use(Cors())
 
 
 /* database configuration */
-mongoose.connect(connection_url, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(connection_url)
 
 
 /* api endpoints */
