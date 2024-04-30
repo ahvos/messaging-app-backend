@@ -68,6 +68,16 @@ app.post('/messages/new', async (req, res) => {
     }
 });
 
+app.get('/messages/sync', (req, res) => {
+    Messages.find((err, data) => {
+        if(err) {
+            res.status(500).send(err)
+        } else {
+        res.status(200).send(data)
+        }
+    })
+})
+
 
 
 /* listener */
