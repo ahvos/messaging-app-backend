@@ -54,7 +54,6 @@ app.post('/messages/new', async (req, res) => {
             message: dbMessage.message,
             name: dbMessage.name,
             timestamp: dbMessage.timestamp,
-            received: true
         });
 
         const responseData = {
