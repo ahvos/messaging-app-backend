@@ -44,28 +44,6 @@ app.get('/messages/sync', (req, res) => {
         }
     })
 })
-
-app.post('/messages/new', async (req, res) => {
-    try {
-        const dbMessage = req.body;
-        const data = await Messages.create({
-            message: dbMessage.message,
-            name: dbMessage.name,
-            timestamp: dbMessage.timestamp,
-        });
-
-        const responseData = {
-            _id: data._id,
-            received: data.received,
-            ...dbMessage
-        };
-
-        res.status(201).send(responseData);
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
-
 */
 
 app.post('/messages/new', async (req, res) => {
