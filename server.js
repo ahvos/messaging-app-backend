@@ -9,7 +9,7 @@ import Messages from './dbMessages.js'
 /* app configuration */
 const app = express()
 const port = process.env.PORT || 9000
-const connection_url = ' mongodb+srv://admin:a1317@messages.w7ynszz.mongodb.net/?retryWrites=true&w=majority&appName=messages'
+const connection_url = 'mongodb+srv://admin:a1317@messages.w7ynszz.mongodb.net/?retryWrites=true&w=majority&appName=messages'
 
 
 /* middleware */
